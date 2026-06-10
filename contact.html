@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra | Contact Us</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        fade: 'fadeIn 1s ease-in-out',
+                        slide: 'slideUp 1s ease-in-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(50px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- NAVBAR -->
+
+    <nav class="shadow-md sticky top-0 bg-white z-50">
+
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-3xl font-bold">
+                Nostra
+            </h1>
+
+            <ul class="hidden md:flex gap-8 font-medium">
+
+                <li>
+                    <a href="index.html" class="hover:text-red-500 transition duration-300">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collection.html" class="hover:text-red-500 transition duration-300">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="text-red-500 font-semibold">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <button id="menu-btn" class="md:hidden text-3xl">
+                ☰
+            </button>
+
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+
+            <a href="index.html" class="block p-4 hover:bg-gray-100">
+                Home
+            </a>
+
+            <a href="collection.html" class="block p-4 hover:bg-gray-100">
+                Collections
+            </a>
+
+            <a href="contact.html" class="block p-4 bg-gray-100">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- HEADER -->
+
+    <section class="py-16 bg-gradient-to-r from-black to-gray-800 text-white">
+
+        <div class="container mx-auto px-6 text-center animate-slide">
+
+            <h1 class="text-5xl font-bold mb-4">
+                Contact Us
+            </h1>
+
+            <p class="text-lg text-gray-300">
+                We'd love to hear from you. Get in touch with us.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT INFO -->
+
+    <section class="container mx-auto px-6 py-16">
+
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <div
+                class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-center">
+
+                <div class="text-5xl mb-4">
+                    📍
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Address
+                </h3>
+
+                <p class="text-gray-600">
+                    123 Fashion Street,<br>
+                    Chennai,<br>
+                    Tamil Nadu
+                </p>
+
+            </div>
+
+            <div
+                class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-center">
+
+                <div class="text-5xl mb-4">
+                    📞
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Phone
+                </h3>
+
+                <p class="text-gray-600">
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+            <div
+                class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 text-center">
+
+                <div class="text-5xl mb-4">
+                    ✉️
+                </div>
+
+                <h3 class="text-xl font-bold mb-3">
+                    Email
+                </h3>
+
+                <p class="text-gray-600">
+                    support@nostra.com
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT FORM -->
+
+    <section class="container mx-auto px-6 pb-20">
+
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+
+            <h2 class="text-3xl font-bold text-center mb-8">
+                Send Us a Message
+            </h2>
+
+            <form class="space-y-6">
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Name
+                    </label>
+
+                    <input type="text" placeholder="Enter your name"
+                        class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Email
+                    </label>
+
+                    <input type="email" placeholder="Enter your email"
+                        class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Subject
+                    </label>
+
+                    <input type="text" placeholder="Enter subject"
+                        class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-medium">
+                        Message
+                    </label>
+
+                    <textarea rows="6" placeholder="Write your message..."
+                        class="w-full border border-gray-300 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
+
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-black text-white py-4 rounded-lg hover:bg-red-500 hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
+
+                    Send Message
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- NEWSLETTER -->
+
+    <section class="bg-gray-100 py-16">
+
+        <div class="container mx-auto px-6 text-center">
+
+            <h2 class="text-4xl font-bold mb-4">
+                Join Our Newsletter
+            </h2>
+
+            <p class="text-gray-600 mb-6">
+                Get exclusive offers and fashion updates.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+
+                <input type="email" placeholder="Enter your email"
+                    class="border border-gray-300 rounded-lg p-4 md:w-96 focus:outline-none focus:ring-2 focus:ring-red-500">
+
+                <button
+                    class="bg-black text-white px-8 py-4 rounded-lg hover:bg-red-500 hover:scale-105 transition-all duration-300">
+
+                    Subscribe
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="bg-black text-white py-10">
+
+        <div class="container mx-auto text-center">
+
+            <h2 class="text-3xl font-bold mb-3">
+                Nostra
+            </h2>
+
+            <p>
+                © 2026 Nostra. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
