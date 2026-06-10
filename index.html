@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra | Home</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        fade: 'fadeIn 1s ease-in-out',
+                        slide: 'slideUp 1s ease-in-out'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(50px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white">
+
+    <!-- Navbar -->
+
+    <nav class="shadow-md sticky top-0 bg-white z-50">
+
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <h1 class="text-3xl font-bold">
+                Nostra
+            </h1>
+
+            <ul class="hidden md:flex gap-8 font-medium">
+
+                <li>
+                    <a href="index.html" class="hover:text-red-500 transition duration-300">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="collection.html" class="hover:text-red-500 transition duration-300">
+                        Collections
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html" class="hover:text-red-500 transition duration-300">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <button id="menu-btn" class="md:hidden text-3xl">
+                ☰
+            </button>
+
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+
+            <a href="index.html" class="block p-4 hover:bg-gray-100">
+                Home
+            </a>
+
+            <a href="collection.html" class="block p-4 hover:bg-gray-100">
+                Collections
+            </a>
+
+            <a href="contact.html" class="block p-4 hover:bg-gray-100">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section class="container mx-auto px-6 py-16">
+
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+
+            <div class="animate-slide">
+
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                    Level Up Your Style
+                </h1>
+
+                <p class="text-gray-600 mb-6">
+                    Discover premium fashion collections for men, women and kids.
+                </p>
+
+                <button
+                    class="bg-black text-white px-8 py-3 rounded-lg hover:bg-red-500 hover:scale-105 hover:shadow-xl transition-all duration-300">
+
+                    Shop Now
+
+                </button>
+
+            </div>
+
+            <div>
+
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1000"
+                    class="rounded-xl shadow-xl hover:scale-105 transition duration-500">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Brands -->
+
+    <section class="container mx-auto px-6 py-12">
+
+        <h2 class="text-3xl font-bold text-center mb-10">
+            Brands
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+
+            <div
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
+                Nike
+            </div>
+
+            <div
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
+                Adidas
+            </div>
+
+            <div
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
+                Puma
+            </div>
+
+            <div
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
+                Zara
+            </div>
+
+            <div
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
+                H&M
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Why Choose Us -->
+
+    <section class="bg-gray-100 py-16">
+
+        <div class="container mx-auto px-6">
+
+            <h2 class="text-3xl font-bold text-center mb-10">
+                Why Choose Us
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+
+                    <h3 class="font-bold text-xl mb-3">
+                        Premium Quality
+                    </h3>
+
+                    <p>
+                        Carefully selected materials and superior craftsmanship.
+                    </p>
+
+                </div>
+
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+
+                    <h3 class="font-bold text-xl mb-3">
+                        Fast Delivery
+                    </h3>
+
+                    <p>
+                        Quick and reliable delivery to your doorstep.
+                    </p>
+
+                </div>
+
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+
+                    <h3 class="font-bold text-xl mb-3">
+                        24/7 Support
+                    </h3>
+
+                    <p>
+                        Dedicated support whenever you need assistance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NEW ARRIVALS -->
+
+    <section class="container mx-auto px-6 py-16">
+
+        <h2 class="text-4xl font-bold text-center mb-10">
+            New Arrivals
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- MEN -->
+
+            <div
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600" alt="Men Fashion"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Men Collection</h3>
+                    <p class="text-gray-500">Starting from ₹999</p>
+                </div>
+
+            </div>
+
+            <!-- WOMEN -->
+
+            <div
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600" alt="Women Fashion"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Women Collection</h3>
+                    <p class="text-gray-500">Starting from ₹1499</p>
+                </div>
+
+            </div>
+
+            <!-- KIDS -->
+
+            <div
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+
+                <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600" alt="Kids Fashion"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Kids Collection</h3>
+                    <p class="text-gray-500">Starting from ₹699</p>
+                </div>
+
+            </div>
+
+            <!-- TRENDING -->
+
+            <div
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600" alt="Trending Fashion"
+                    class="w-full h-80 object-cover">
+
+                <div class="p-4">
+                    <h3 class="text-xl font-bold">Trending Fashion</h3>
+                    <p class="text-gray-500">Latest Styles 2026</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-black text-white py-10">
+
+        <div class="container mx-auto text-center">
+
+            <h2 class="text-3xl font-bold mb-3">
+                Nostra
+            </h2>
+
+            <p>
+                © 2026 Nostra. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
