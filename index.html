@@ -14,7 +14,12 @@
                 extend: {
                     animation: {
                         fade: 'fadeIn 1s ease-in-out',
-                        slide: 'slideUp 1s ease-in-out'
+                        slide: 'slideUp 1s ease-in-out',
+                        bounce: 'bounce 2s infinite',
+                        pulse: 'pulse 2s infinite',
+                        shimmer: 'shimmer 2s infinite',
+                        float: 'float 3s ease-in-out infinite',
+                        glow: 'glow 2s ease-in-out infinite'
                     },
                     keyframes: {
                         fadeIn: {
@@ -30,6 +35,22 @@
                                 opacity: '1',
                                 transform: 'translateY(0)'
                             }
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 5px rgba(239, 68, 68, 0.5)' },
+                            '50%': { boxShadow: '0 0 20px rgba(239, 68, 68, 0.8)' }
                         }
                     }
                 }
@@ -46,33 +67,36 @@
 
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 
-            <h1 class="text-3xl font-bold">
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent animate-pulse">
                 Nostra
             </h1>
 
             <ul class="hidden md:flex gap-8 font-medium">
 
                 <li>
-                    <a href="index.html" class="hover:text-red-500 transition duration-300">
+                    <a href="index.html" class="hover:text-red-500 transition duration-300 relative group">
                         Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="collection.html" class="hover:text-red-500 transition duration-300">
+                    <a href="collection.html" class="hover:text-red-500 transition duration-300 relative group">
                         Collections
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="contact.html" class="hover:text-red-500 transition duration-300">
+                    <a href="contact.html" class="hover:text-red-500 transition duration-300 relative group">
                         Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
 
             </ul>
 
-            <button id="menu-btn" class="md:hidden text-3xl">
+            <button id="menu-btn" class="md:hidden text-3xl hover:text-red-500 transition">
                 ☰
             </button>
 
@@ -80,15 +104,15 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
 
-            <a href="index.html" class="block p-4 hover:bg-gray-100">
+            <a href="index.html" class="block p-4 hover:bg-red-50 transition">
                 Home
             </a>
 
-            <a href="collection.html" class="block p-4 hover:bg-gray-100">
+            <a href="collection.html" class="block p-4 hover:bg-red-50 transition">
                 Collections
             </a>
 
-            <a href="contact.html" class="block p-4 hover:bg-gray-100">
+            <a href="contact.html" class="block p-4 hover:bg-red-50 transition">
                 Contact
             </a>
 
@@ -104,27 +128,35 @@
 
             <div class="animate-slide">
 
+                <span class="text-red-500 font-semibold text-lg animate-pulse inline-block mb-4">✨ NEW COLLECTION 2026 ✨</span>
+
                 <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                    Level Up Your Style
+                    Level Up Your <span class="text-red-500">Style</span>
                 </h1>
 
-                <p class="text-gray-600 mb-6">
-                    Discover premium fashion collections for men, women and kids.
+                <p class="text-gray-600 mb-6 text-lg">
+                    Discover premium fashion collections for men, women and kids. Latest trends at best prices.
                 </p>
 
-                <button
-                    class="bg-black text-white px-8 py-3 rounded-lg hover:bg-red-500 hover:scale-105 hover:shadow-xl transition-all duration-300">
-
-                    Shop Now
-
-                </button>
+                <div class="flex gap-4">
+                    <button id="shop-now-btn"
+                        class="bg-black text-white px-8 py-3 rounded-lg hover:bg-red-500 hover:scale-105 hover:shadow-xl transition-all duration-300 animate-bounce">
+                        Shop Now →
+                    </button>
+                    <button class="border-2 border-black px-8 py-3 rounded-lg hover:bg-black hover:text-white transition-all duration-300">
+                        Learn More
+                    </button>
+                </div>
 
             </div>
 
-            <div>
+            <div class="relative group">
 
-                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1000"
-                    class="rounded-xl shadow-xl hover:scale-105 transition duration-500">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1000" 
+                    alt="Fashion Model"
+                    class="rounded-xl shadow-2xl hover:scale-105 transition duration-500 group-hover:shadow-red-500/50">
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             </div>
 
@@ -132,39 +164,39 @@
 
     </section>
 
-    <!-- Brands -->
+    <!-- Brands Section with Animation -->
 
     <section class="container mx-auto px-6 py-12">
 
-        <h2 class="text-3xl font-bold text-center mb-10">
-            Brands
+        <h2 class="text-3xl font-bold text-center mb-10 animate-slide">
+            Trusted <span class="text-red-500">Brands</span>
         </h2>
 
         <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
 
             <div
-                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
-                Nike
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white hover:-translate-y-3 transition-all duration-300 cursor-pointer">
+                👕 Nike
             </div>
 
             <div
-                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
-                Adidas
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white hover:-translate-y-3 transition-all duration-300 cursor-pointer">
+                👟 Adidas
             </div>
 
             <div
-                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
-                Puma
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white hover:-translate-y-3 transition-all duration-300 cursor-pointer">
+                🐆 Puma
             </div>
 
             <div
-                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
-                Zara
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white hover:-translate-y-3 transition-all duration-300 cursor-pointer">
+                👗 Zara
             </div>
 
             <div
-                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-black hover:text-white hover:-translate-y-2 transition-all duration-300">
-                H&M
+                class="bg-white p-6 text-center rounded-xl shadow-lg hover:bg-gradient-to-r hover:from-red-500 hover:to-black hover:text-white hover:-translate-y-3 transition-all duration-300 cursor-pointer">
+                👚 H&M
             </div>
 
         </div>
@@ -173,50 +205,56 @@
 
     <!-- Why Choose Us -->
 
-    <section class="bg-gray-100 py-16">
+    <section class="bg-gradient-to-r from-gray-50 to-gray-100 py-16">
 
         <div class="container mx-auto px-6">
 
             <h2 class="text-3xl font-bold text-center mb-10">
-                Why Choose Us
+                Why <span class="text-red-500">Choose Us</span>
             </h2>
 
             <div class="grid md:grid-cols-3 gap-8">
 
                 <div
-                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 text-center group">
+
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">✨</div>
 
                     <h3 class="font-bold text-xl mb-3">
                         Premium Quality
                     </h3>
 
-                    <p>
+                    <p class="text-gray-600">
                         Carefully selected materials and superior craftsmanship.
                     </p>
 
                 </div>
 
                 <div
-                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 text-center group">
+
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">🚚</div>
 
                     <h3 class="font-bold text-xl mb-3">
                         Fast Delivery
                     </h3>
 
-                    <p>
+                    <p class="text-gray-600">
                         Quick and reliable delivery to your doorstep.
                     </p>
 
                 </div>
 
                 <div
-                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+                    class="bg-white p-8 rounded-xl shadow-lg hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 text-center group">
+
+                    <div class="text-5xl mb-4 group-hover:scale-110 transition">💬</div>
 
                     <h3 class="font-bold text-xl mb-3">
                         24/7 Support
                     </h3>
 
-                    <p>
+                    <p class="text-gray-600">
                         Dedicated support whenever you need assistance.
                     </p>
 
@@ -233,7 +271,7 @@
     <section class="container mx-auto px-6 py-16">
 
         <h2 class="text-4xl font-bold text-center mb-10">
-            New Arrivals
+            New <span class="text-red-500">Arrivals</span>
         </h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -241,14 +279,17 @@
             <!-- MEN -->
 
             <div
-                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-4 hover:scale-105 hover:shadow-2xl transition-all duration-300 group">
 
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600" alt="Men Fashion"
-                    class="w-full h-80 object-cover">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600" alt="Men Fashion dress"
+                        class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                </div>
 
                 <div class="p-4">
                     <h3 class="text-xl font-bold">Men Collection</h3>
                     <p class="text-gray-500">Starting from ₹999</p>
+                    <button class="mt-3 text-red-500 font-semibold hover:text-black transition">Shop Now →</button>
                 </div>
 
             </div>
@@ -256,14 +297,17 @@
             <!-- WOMEN -->
 
             <div
-                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-4 hover:scale-105 hover:shadow-2xl transition-all duration-300 group">
 
-                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600" alt="Women Fashion"
-                    class="w-full h-80 object-cover">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600" alt="Women Fashion"
+                        class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                </div>
 
                 <div class="p-4">
                     <h3 class="text-xl font-bold">Women Collection</h3>
                     <p class="text-gray-500">Starting from ₹1499</p>
+                    <button class="mt-3 text-red-500 font-semibold hover:text-black transition">Shop Now →</button>
                 </div>
 
             </div>
@@ -271,14 +315,17 @@
             <!-- KIDS -->
 
             <div
-                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-4 hover:scale-105 hover:shadow-2xl transition-all duration-300 group">
 
-                <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600" alt="Kids Fashion"
-                    class="w-full h-80 object-cover">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600" alt="Kids Fashion"
+                        class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                </div>
 
                 <div class="p-4">
                     <h3 class="text-xl font-bold">Kids Collection</h3>
                     <p class="text-gray-500">Starting from ₹699</p>
+                    <button class="mt-3 text-red-500 font-semibold hover:text-black transition">Shop Now →</button>
                 </div>
 
             </div>
@@ -286,14 +333,17 @@
             <!-- TRENDING -->
 
             <div
-                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-3 hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                class="bg-white rounded-xl overflow-hidden shadow-lg hover:-translate-y-4 hover:scale-105 hover:shadow-2xl transition-all duration-300 group">
 
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600" alt="Trending Fashion"
-                    class="w-full h-80 object-cover">
+                <div class="overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600" alt="Trending Fashion"
+                        class="w-full h-80 object-cover group-hover:scale-110 transition duration-500">
+                </div>
 
                 <div class="p-4">
                     <h3 class="text-xl font-bold">Trending Fashion</h3>
                     <p class="text-gray-500">Latest Styles 2026</p>
+                    <button class="mt-3 text-red-500 font-semibold hover:text-black transition">Shop Now →</button>
                 </div>
 
             </div>
@@ -304,15 +354,15 @@
 
     <!-- Footer -->
 
-    <footer class="bg-black text-white py-10">
+    <footer class="bg-gradient-to-r from-black to-gray-900 text-white py-10">
 
         <div class="container mx-auto text-center">
 
-            <h2 class="text-3xl font-bold mb-3">
+            <h2 class="text-3xl font-bold mb-3 animate-pulse">
                 Nostra
             </h2>
 
-            <p>
+            <p class="text-gray-400">
                 © 2026 Nostra. All Rights Reserved.
             </p>
 
