@@ -14,7 +14,9 @@
                 extend: {
                     animation: {
                         fade: 'fadeIn 1s ease-in-out',
-                        slide: 'slideUp 1s ease-in-out'
+                        slide: 'slideUp 1s ease-in-out',
+                        shimmer: 'shimmer 2s infinite',
+                        float: 'float 3s ease-in-out infinite'
                     },
                     keyframes: {
                         fadeIn: {
@@ -30,6 +32,14 @@
                                 opacity: '1',
                                 transform: 'translateY(0)'
                             }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-1000px 0' },
+                            '100%': { backgroundPosition: '1000px 0' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
                         }
                     }
                 }
@@ -38,7 +48,7 @@
     </script>
 </head>
 
-<body class="bg-white">
+<body class="bg-gray-50">
 
     <!-- NAVBAR -->
 
@@ -46,33 +56,36 @@
 
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
 
-            <h1 class="text-3xl font-bold">
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-red-500 to-black bg-clip-text text-transparent">
                 Nostra
             </h1>
 
             <ul class="hidden md:flex gap-8 font-medium">
 
                 <li>
-                    <a href="index.html" class="hover:text-red-500 transition duration-300">
+                    <a href="index.html" class="hover:text-red-500 transition duration-300 relative group">
                         Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="collections.html" class="text-red-500 font-semibold">
+                    <a href="collection.html" class="text-red-500 font-semibold relative group">
                         Collections
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-red-500"></span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="contact.html" class="hover:text-red-500 transition duration-300">
+                    <a href="contact.html" class="hover:text-red-500 transition duration-300 relative group">
                         Contact
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
 
             </ul>
 
-            <button id="menu-btn" class="md:hidden text-3xl">
+            <button id="menu-btn" class="md:hidden text-3xl hover:text-red-500 transition">
                 ☰
             </button>
 
@@ -80,15 +93,15 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
 
-            <a href="index.html" class="block p-4 hover:bg-gray-100">
+            <a href="index.html" class="block p-4 hover:bg-red-50 transition">
                 Home
             </a>
 
-            <a href="collection.html" class="block p-4 bg-gray-100">
+            <a href="collection.html" class="block p-4 bg-red-50 text-red-500">
                 Collections
             </a>
 
-            <a href="contact.html" class="block p-4 hover:bg-gray-100">
+            <a href="contact.html" class="block p-4 hover:bg-red-50 transition">
                 Contact
             </a>
 
@@ -101,7 +114,7 @@
     <section class="container mx-auto px-6 py-10">
 
         <h1 class="text-5xl font-bold text-center animate-slide">
-            Collections
+            Our <span class="text-red-500">Collections</span>
         </h1>
 
         <p class="text-center text-gray-500 mt-4">
@@ -114,8 +127,8 @@
 
     <section class="container mx-auto px-6 mb-10">
 
-        <input id="search" type="text" placeholder="Search Products..."
-            class="w-full border-2 border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500">
+        <input id="search" type="text" placeholder="🔍 Search Products..."
+            class="w-full border-2 border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition-all">
 
     </section>
 
@@ -127,31 +140,31 @@
 
             <!-- FILTER SECTION -->
 
-            <div class="bg-white shadow-lg rounded-xl p-6 h-fit">
+            <div class="bg-white shadow-lg rounded-xl p-6 h-fit hover:shadow-xl transition-all duration-300">
 
-                <h2 class="text-2xl font-bold mb-6">
-                    Filters
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    🎯 Filters
                 </h2>
 
-                <h3 class="font-semibold mb-3">
+                <h3 class="font-semibold mb-3 text-lg">
                     Category
                 </h3>
 
                 <div class="space-y-3">
 
-                    <label class="flex items-center gap-2">
-                        <input type="checkbox" class="filter-checkbox accent-red-500" value="men">
-                        Men
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-red-500 transition">
+                        <input type="checkbox" class="filter-checkbox accent-red-500 w-5 h-5" value="men">
+                        👨 Men's Fashion
                     </label>
 
-                    <label class="flex items-center gap-2">
-                        <input type="checkbox" class="filter-checkbox accent-red-500" value="women">
-                        Women
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-red-500 transition">
+                        <input type="checkbox" class="filter-checkbox accent-red-500 w-5 h-5" value="women">
+                        👩 Women's Fashion
                     </label>
 
-                    <label class="flex items-center gap-2">
-                        <input type="checkbox" class="filter-checkbox accent-red-500" value="kids">
-                        Kids
+                    <label class="flex items-center gap-2 cursor-pointer hover:text-red-500 transition">
+                        <input type="checkbox" class="filter-checkbox accent-red-500 w-5 h-5" value="kids">
+                        👶 Kids' Fashion
                     </label>
 
                 </div>
@@ -160,121 +173,146 @@
 
             <!-- PRODUCTS -->
 
-            <!-- PRODUCTS -->
-
             <div id="products-container" class="md:col-span-3 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- MEN PRODUCTS -->
+                <!-- MEN PRODUCTS - Updated with stylish men's images -->
+                
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Men Casual Shirt" data-category="men">
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Men Shirt" data-category="men">
-
-                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" alt="Men Casual Shirt"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Men Shirt</h3>
-                        <p class="text-gray-500">₹999</p>
+                        <h3 class="font-bold text-lg">Men Casual Shirt</h3>
+                        <p class="text-red-500 font-bold">₹999</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Men Jacket" data-category="men">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Men Leather Jacket" data-category="men">
 
-                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500" alt="Men Leather Jacket"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Men Jacket</h3>
-                        <p class="text-gray-500">₹1999</p>
+                        <h3 class="font-bold text-lg">Men Leather Jacket</h3>
+                        <p class="text-red-500 font-bold">₹2999</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Men Hoodie" data-category="men">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Men Premium Hoodie" data-category="men">
 
-                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500" alt="Men Hoodie"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Men Hoodie</h3>
-                        <p class="text-gray-500">₹1499</p>
+                        <h3 class="font-bold text-lg">Men Premium Hoodie</h3>
+                        <p class="text-red-500 font-bold">₹1499</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <!-- WOMEN PRODUCTS -->
+                <!-- WOMEN PRODUCTS - Updated with stylish women's images -->
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Women Dress" data-category="women">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Women Designer Dress" data-category="women">
 
-                    <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=500" alt="Women Dress"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Women Dress</h3>
-                        <p class="text-gray-500">₹1499</p>
+                        <h3 class="font-bold text-lg">Women Designer Dress</h3>
+                        <p class="text-red-500 font-bold">₹2499</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Women Top" data-category="women">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Women Western Top" data-category="women">
 
-                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=500" alt="Women Top"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Women Top</h3>
-                        <p class="text-gray-500">₹899</p>
+                        <h3 class="font-bold text-lg">Women Western Top</h3>
+                        <p class="text-red-500 font-bold">₹1299</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Women Saree" data-category="women">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Women Traditional Saree" data-category="women">
 
-                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500" alt="Women Saree"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Women Saree</h3>
-                        <p class="text-gray-500">₹2499</p>
+                        <h3 class="font-bold text-lg">Women Traditional Saree</h3>
+                        <p class="text-red-500 font-bold">₹3499</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
                 <!-- KIDS PRODUCTS -->
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Kids T-Shirt" data-category="kids">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Kids Cartoon T-Shirt" data-category="kids">
 
-                    <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500" alt="Kids T-Shirt"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Kids T-Shirt</h3>
-                        <p class="text-gray-500">₹699</p>
+                        <h3 class="font-bold text-lg">Kids Cartoon T-Shirt</h3>
+                        <p class="text-red-500 font-bold">₹699</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Kids Hoodie" data-category="kids">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Kids Cute Hoodie" data-category="kids">
 
-                    <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=500" alt="Kids Hoodie"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Kids Hoodie</h3>
-                        <p class="text-gray-500">₹899</p>
+                        <h3 class="font-bold text-lg">Kids Cute Hoodie</h3>
+                        <p class="text-red-500 font-bold">₹899</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
-                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300"
-                    data-name="Kids Jacket" data-category="kids">
+                <div class="product bg-white rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 group"
+                    data-name="Kids Denim Jacket" data-category="kids">
 
-                    <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=500"
-                        class="w-full h-72 object-cover">
+                    <div class="overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=500" alt="Kids Jacket"
+                            class="w-full h-72 object-cover group-hover:scale-110 transition duration-500">
+                    </div>
 
                     <div class="p-4">
-                        <h3 class="font-bold text-lg">Kids Jacket</h3>
-                        <p class="text-gray-500">₹1199</p>
+                        <h3 class="font-bold text-lg">Kids Denim Jacket</h3>
+                        <p class="text-red-500 font-bold">₹1199</p>
+                        <button class="mt-2 text-sm text-gray-500 hover:text-red-500 transition">Add to Cart →</button>
                     </div>
                 </div>
 
@@ -282,11 +320,20 @@
 
         </div>
 
+        <!-- NO RESULTS MESSAGE -->
+        <div id="no-results" class="text-center py-10 hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto">
+                <p class="text-6xl mb-4">🔍</p>
+                <p class="text-gray-500 text-lg">No products found matching your criteria.</p>
+                <p class="text-gray-400 mt-2">Try adjusting your filters or search term.</p>
+            </div>
+        </div>
+
     </section>
 
     <!-- FOOTER -->
 
-    <footer class="bg-black text-white py-10">
+    <footer class="bg-gradient-to-r from-black to-gray-900 text-white py-10">
 
         <div class="container mx-auto text-center">
 
@@ -294,7 +341,7 @@
                 Nostra
             </h2>
 
-            <p>
+            <p class="text-gray-400">
                 © 2026 Nostra. All Rights Reserved.
             </p>
 
